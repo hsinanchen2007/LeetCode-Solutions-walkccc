@@ -7,8 +7,7 @@ class Solution {
     dp.resize(n + 1, vector<int>(m + 1, INT_MAX));
     prefix.resize(n + 1);
 
-    for (int i = 0; i < n; ++i)
-      prefix[i + 1] = nums[i] + prefix[i];
+    partial_sum(begin(nums), end(nums), begin(prefix) + 1);
 
     return splitArray(nums, n, m);
   }

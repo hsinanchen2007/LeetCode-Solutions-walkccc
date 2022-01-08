@@ -7,10 +7,10 @@ class Solution {
     vector<vector<long>> dp(n + 1, vector<long>(m + 1, INT_MAX));
     vector<long> prefix(n + 1);
 
-    for (int i = 1; i <= n; ++i) {
-      prefix[i] = prefix[i - 1] + nums[i - 1];
+    partial_sum(begin(nums), end(nums), begin(prefix) + 1);
+
+    for (int i = 1; i <= n; ++i)
       dp[i][1] = prefix[i];
-    }
 
     for (int k = 2; k <= m; ++k)
       for (int i = k; i <= n; ++i)
