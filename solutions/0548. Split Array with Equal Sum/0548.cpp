@@ -7,8 +7,7 @@ class Solution {
 
     vector<int> prefix(n);
 
-    for (int i = 0; i < n; ++i)
-      prefix[i] = i == 0 ? nums[0] : prefix[i - 1] + nums[i];
+    partial_sum(begin(nums), end(nums), begin(prefix));
 
     for (int j = 3; j < n - 3; ++j) {
       unordered_set<int> seen;
