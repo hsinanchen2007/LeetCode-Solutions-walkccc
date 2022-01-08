@@ -1,8 +1,7 @@
 class NumArray {
  public:
   NumArray(vector<int>& nums) : prefix(nums.size() + 1) {
-    for (int i = 0; i < nums.size(); ++i)
-      prefix[i + 1] = nums[i] + prefix[i];
+    partial_sum(begin(nums), end(nums), begin(prefix) + 1);
   }
 
   int sumRange(int i, int j) {
